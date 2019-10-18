@@ -14,10 +14,11 @@ libraryDependencies ++= Seq(
   "org.http4s" %% "http4s-blaze-server" % http4sVersion,
   "org.http4s" %% "http4s-dsl" % http4sVersion,
   "org.http4s" %% "http4s-argonaut" % http4sVersion,
+  "org.http4s" %% "http4s-circe" % "0.20.11",
   "com.typesafe.play" %% "play-json" % "2.7.4",
   "io.circe" %% "circe-core" % circeVersion,
   "io.circe" %% "circe-generic" % circeVersion,
-  "io.circe" %% "circe-jawn" % circeVersion,
+  "io.circe" %% "circe-literal" % circeVersion,
   "com.chuusai" %% "shapeless" % "2.3.3",
   "org.scalatest" %% "scalatest" % "3.0.8"
 )

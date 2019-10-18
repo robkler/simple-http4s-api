@@ -1,5 +1,6 @@
 package com.gvolpe.api
 
+import io.circe.Json
 import org.http4s.headers.{`Content-Type`, `Transfer-Encoding`}
 import org.http4s._
 import play.api.libs.json.{JsValue, Json}
@@ -15,29 +16,6 @@ package object service {
 //    def chunked: Task[Response] = {
 //      response.putHeaders(`Transfer-Encoding`(TransferCoding.chunked))
 //    }
-//  }
-//
-//  object CirceImplicits {
-//
-//    implicit val circeJsonEncoder: EntityEncoder[CirceJson] =
-//      EntityEncoder
-//        .stringEncoder(Charset.`UTF-8`)
-//        .contramap { json: CirceJson => json.noSpaces }
-//        .withContentType(`Content-Type`(MediaType.`application/json`, Charset.`UTF-8`))
-//
-//  }
-//
-//  object PlayJsonImplicits {
-//
-//    implicit val playJsonEncoder: EntityEncoder[JsValue] =
-//      EntityEncoder
-//        .stringEncoder(Charset.`UTF-8`)
-//        .contramap { json: JsValue => json.toString() }
-//        .withContentType(`Content-Type`(MediaType.`application/json`, Charset.`UTF-8`))
-//
-//    implicit val userJsonFormat = Json.format[User]
-//    implicit val productJsonFormat = Json.format[Product]
-//
 //  }
 
 }
