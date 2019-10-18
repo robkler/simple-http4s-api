@@ -1,20 +1,21 @@
 package com.gvolpe.api.service
 
-import com.gvolpe.api.service.PlayJsonImplicits._
-import org.http4s.dsl._
-import org.http4s.server.HttpService
-import play.api.libs.json.Json
+import cats.effect._
+import io.circe.generic.auto._
+import io.circe.syntax._
+import org.http4s.HttpRoutes
+import org.http4s.dsl.io._
 
 object ProductService {
 
-  def apply(): HttpService = service
+  def apply(): HttpRoutes[IO] = service
 
-  private val service = HttpService {
+  private val service = HttpRoutes.of[IO] {
     case GET -> Root =>
-      val products = List(Product(1, "Book"), Product(2, "Calc"), Product(3, "Guitar"))
-      Ok(Json.toJson(products))
+      val products = List(Product(1, "Book"), Product(2, "Calc"), Product(3, "Guitar")).asJson.toString
+      Ok(products)
     case GET -> Root / id =>
-      Ok(Json.toJson(Product(id.toLong, s"Name#$id")))
+      Ok(Product(id.toLong, s"Name#$id").asJson.toString)
   }
 
 }
